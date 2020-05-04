@@ -3,5 +3,5 @@
 #user: ansible
   become: yes
   tasks:
-    - include: 
-    - include:
+    - include: docker_installation/tasks/main.yaml
+    - include: docker_storage/tasks/main.yaml
