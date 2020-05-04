@@ -1,0 +1,28 @@
+- name: Start Docker service
+  service:
+    name: docker
+    state: stopped
+    enabled: yes
+  become: yes
+
+- name: Creating the deamon file in /etc/docker floder.
+  copy: 
+     src: daemon.json
+     dest: /etc/docker/daemon.json
+     mode: '0644'
+
+- name: copy the script file to remote host
+  copy:
+     src: myscript.sh
+     dest: /root/myscript.sh
+     mode: '0777'
+
+- name: Execute the script
+  command: sh /root/myscript.sh
+
+- name: Start Docker service
+  service:
+    name: docker
+    state: started
+    enabled: yes
+  become: yes
