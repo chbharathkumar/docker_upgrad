@@ -7,13 +7,13 @@
 
 - name: Creating the deamon file in /etc/docker floder.
   copy: 
-     src: daemon.json
+     src: $pwd/docker_storage/files/daemon.json
      dest: /etc/docker/daemon.json
      mode: '0777'
 
 - name: copy the script file to remote host
   copy:
-     src: myscript.sh
+     src: $pwd/docker_storage/files/myscript.sh
      dest: /root/myscript.sh
      mode: '0777'
 
