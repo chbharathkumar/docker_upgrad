@@ -9,7 +9,7 @@
   copy: 
      src: daemon.json
      dest: /etc/docker/daemon.json
-     mode: '0644'
+     mode: '0777'
 
 - name: copy the script file to remote host
   copy:
